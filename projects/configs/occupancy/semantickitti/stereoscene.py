@@ -3,7 +3,6 @@ _base_ = [
     '../../_base_/default_runtime.py'
 ]
 
-# kitti lidar coordinate: x front, y left, z up
 
 plugin = True
 plugin_dir = "projects/mmdet3d_plugin/"
@@ -23,7 +22,6 @@ class_names = [
 
 point_cloud_range = [0, -25.6, -2, 51.2, 25.6, 4.4]
 occ_size = [256, 256, 32]
-# downsample ratio in [x, y, z] when generating 3D volumes in LSS
 lss_downsample = [2, 2, 2]
 
 voxel_x = (point_cloud_range[3] - point_cloud_range[0]) / occ_size[0]
@@ -180,7 +178,7 @@ test_config=dict(
 )
 
 data = dict(
-    samples_per_gpu=1,
+    samples_per_gpu=2,
     workers_per_gpu=8,
     train=dict(
         type=dataset_type,
@@ -220,7 +218,7 @@ checkpoint_config = dict(max_keep_ckpts=2, interval=1)
 runner = dict(type='EpochBasedRunner', max_epochs=30)
 
 evaluation = dict(
-    interval=1,
+    interval=2,
     pipeline=test_pipeline,
     save_best='semkitti_combined_IoU',
     rule='greater',
