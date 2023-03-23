@@ -1,7 +1,3 @@
-# ---------------------------------------------
-# Copyright (c) OpenMMLab. All rights reserved.
-# ---------------------------------------------
-
 import argparse
 import mmcv
 import os
@@ -118,7 +114,6 @@ def parse_args():
 
 def main():
     args = parse_args()
-    # args.eval='mAP'
 
     assert args.out or args.eval or args.format_only or args.show \
         or args.show_dir, \

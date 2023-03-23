@@ -2,7 +2,7 @@
 # Copyright (c) OpenMMLab. All rights reserved.
 # ---------------------------------------------
 
-#import open3d as o3d
+
 from tkinter.messagebox import NO
 import torch
 from mmcv.runner import force_fp32, auto_fp16

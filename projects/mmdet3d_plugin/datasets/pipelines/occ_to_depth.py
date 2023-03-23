@@ -1,4 +1,4 @@
-#import open3d as o3d
+
 import trimesh
 import mmcv
 import numpy as np
@@ -403,11 +403,6 @@ class CreateDepthFromLiDAR(object):
         flatten_seg = flatten_seg[seg_order]
         img_seg[seg_projected_points[:, 1].round().long(), seg_projected_points[:, 0].round().long()] = flatten_seg
         results['img_seg'] = img_seg   
-
-        
-
-
-
         
         imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, gt_depths, sensor2sensors, calib = results['img_inputs'][1]
         

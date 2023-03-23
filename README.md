@@ -150,8 +150,10 @@ This repository is released under the Apache 2.0 license as found in the [LICENS
 # Acknowledgements
 Many thanks to these excellent open source projects: 
 - [MonoScene](https://github.com/astra-vision/MonoScene)
+- [mmdet3d](https://github.com/open-mmlab/mmdetection3d)
 - [BEVDepth](https://github.com/Megvii-BaseDetection/BEVDepth)
 - [SSC](https://github.com/waterljwant/SSC)
 - [LMSCNet](https://github.com/astra-vision/LMSCNet)
-- [semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api) 
+- [Semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api) 
+- [Pseudo_Lidar_V2](https://github.com/mileyan/Pseudo_Lidar_V2)
 - [TPVFormer](https://github.com/wzzheng/TPVFormer)

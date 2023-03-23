@@ -1,4 +1,4 @@
-#import open3d as o3d
+
 import trimesh
 import mmcv
 import numpy as np

@@ -1,7 +1,3 @@
-# ---------------------------------------------
-# Copyright (c) OpenMMLab. All rights reserved.
-# ---------------------------------------------
- 
 from __future__ import division
 import os
 
