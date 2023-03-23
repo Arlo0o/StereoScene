@@ -1,0 +1,9 @@
+.idea/
+work_dir/
+pretrain/
+*.tar
+*.pt
+*.pth
+*.ckpt
+*.png
+*.jpg
