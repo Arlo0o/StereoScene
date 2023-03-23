@@ -8,7 +8,7 @@ from mmdet.models.backbones.resnet import BasicBlock
 import pdb
 
 norm_cfg = dict(type='GN', num_groups=32, requires_grad=True)
-# norm_cfg = dict(type='BN', requires_grad=True)
+
 
 '''
 RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: 
@@ -190,8 +190,6 @@ class SemKITTIDepthNet(nn.Module):
                                       stride=1,
                                       padding=0)
         
-        # self.bn = nn.Identity()
-        # self.bn = nn.SyncBatchNorm(cam_channels)
         # self.bn = build_norm_layer(dict(type='BN1d', requires_grad=True), cam_channels)[1]
         
         self.depth_mlp = Mlp(cam_channels, mid_channels, mid_channels)

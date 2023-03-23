@@ -41,13 +41,13 @@ class BEVDepthOccupancy(BEVDepth):
     
     def image_encoder(self, img):
         imgs = img
-        B, N, C, imH, imW = imgs.shape  ## [2, 3, 384, 1280]
+        B, N, C, imH, imW = imgs.shape   
         imgs = imgs.view(B * N, C, imH, imW)
         
         if self.use_grid_mask:
             imgs = self.grid_mask(imgs)
         
-        x = self.img_backbone(imgs)  ## 5 [2, 48, 96, 320]  [2, 80, 48, 160]  [2, 224, 24, 80] [2, 640, 12, 40]  [2, 2560, 12, 40]
+        x = self.img_backbone(imgs) 
 
         if self.with_img_neck:
             x = self.img_neck(x)
@@ -59,19 +59,19 @@ class BEVDepthOccupancy(BEVDepth):
         return x
     
     @force_fp32()
-    def bev_encoder(self, x):  ## [4, 128, 128, 128, 16]
+    def bev_encoder(self, x):  
         if self.record_time:
             torch.cuda.synchronize()
             t0 = time.time()
         
-        x = self.img_bev_encoder_backbone(x) ### [4, 128, 128, 128, 16] [4, 256, 64, 64, 8] [4, 512, 32, 32, 4]
+        x = self.img_bev_encoder_backbone(x)  
         
         if self.record_time:
             torch.cuda.synchronize()
             t1 = time.time()
             self.time_stats['bev_encoder'].append(t1 - t0)
         
-        x = self.img_bev_encoder_neck(x)  ### [4, 384, 128, 128, 16]
+        x = self.img_bev_encoder_neck(x)  
         
         if self.record_time:
             torch.cuda.synchronize()
@@ -91,8 +91,7 @@ class BEVDepthOccupancy(BEVDepth):
         img, img2 = img[0], img[1]
         B, N, C, H, W = img[0].shape
        
-        feature_out  = self.image_encoder(  torch.cat([ img[0], img2[0] ],0)   ) ### [B N C H W] [2, 1, 640, 24, 80]
-       
+        feature_out  = self.image_encoder(  torch.cat([ img[0], img2[0] ],0)   ) # 
         x= feature_out[:B ]
         x2= feature_out[B: ]
 
@@ -104,17 +103,17 @@ class BEVDepthOccupancy(BEVDepth):
             self.time_stats['img_encoder'].append(t1 - t0)
 
         # img: imgs, rots, trans, intrins, post_rots, post_trans, gt_depths, sensor2sensors
-        rots, trans, intrins, post_rots, post_trans, bda = img[1:7]  ####    bda[2,3,3]
-        rots2, trans2, intrins2, post_rots2, post_trans2, bda2 = img2[1:7]  ####    bda[2,3,3]
+        rots, trans, intrins, post_rots, post_trans, bda = img[1:7]  
+        rots2, trans2, intrins2, post_rots2, post_trans2, bda2 = img2[1:7]  
         
-        mlp_input = self.img_view_transformer.get_mlp_input(rots, trans, intrins, post_rots, post_trans, bda)  ###  [2, 1, 30]
-        mlp_input2 = self.img_view_transformer.get_mlp_input(rots2, trans2, intrins2, post_rots2, post_trans2, bda2)  ###  [2, 1, 30]
+        mlp_input = self.img_view_transformer.get_mlp_input(rots, trans, intrins, post_rots, post_trans, bda)   
+        mlp_input2 = self.img_view_transformer.get_mlp_input(rots2, trans2, intrins2, post_rots2, post_trans2, bda2)  
         
-        geo_inputs = [rots, trans, intrins, post_rots, post_trans, bda, mlp_input]  ### len=7
-        geo_inputs2 = [rots2, trans2, intrins2, post_rots2, post_trans2, bda2, mlp_input2]  ### len=7 
+        geo_inputs = [rots, trans, intrins, post_rots, post_trans, bda, mlp_input]   
+        geo_inputs2 = [rots2, trans2, intrins2, post_rots2, post_trans2, bda2, mlp_input2]   
 
         calib = img[-1]
-        x, depth = self.img_view_transformer([x] + geo_inputs + [x2] + geo_inputs2 + [calib]+ [img, img2] )  #### x[2, 128, 128, 128, 16]  depth[B N H W] [2, 112, 24, 80]
+        x, depth = self.img_view_transformer([x] + geo_inputs + [x2] + geo_inputs2 + [calib]+ [img, img2] )  
 
 
         if self.record_time:
@@ -228,7 +227,7 @@ class BEVDepthOccupancy(BEVDepth):
             t0 = time.time()
         
         if not self.disable_loss_depth:
-            losses['loss_depth'] = self.img_view_transformer.get_depth_loss(img_inputs[0][7], depth)  ### ce loss
+            losses['loss_depth'] = self.img_view_transformer.get_depth_loss(img_inputs[0][7], depth)   
 
 
         if self.record_time:

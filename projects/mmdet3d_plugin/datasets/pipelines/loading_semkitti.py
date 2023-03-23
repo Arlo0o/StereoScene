@@ -143,7 +143,7 @@ class LoadMultiViewImageFromFiles_SemanticKitti(object):
             resize += np.random.uniform(*self.data_config['resize'])
             resize_dims = (int(W * resize), int(H * resize))
             newW, newH = resize_dims
-            # 高度上只裁上半部分
+    
             crop_h = int((1 - np.random.uniform(*self.data_config['crop_h'])) * newH) - fH
             crop_w = int(np.random.uniform(0, max(0, newW - fW)))
             crop = (crop_w, crop_h, crop_w + fW, crop_h + fH)
@@ -168,11 +168,11 @@ class LoadMultiViewImageFromFiles_SemanticKitti(object):
     def get_inputs(self, results, flip=None, scale=None):
                 
         # load the monocular image for semantic kitti
-        img_filenames = results['img_filename']  #### 两个
+        img_filenames = results['img_filename']   
 
         assert len(img_filenames) == 2
 
-        calib = results['calib']  #### 两个
+        calib = results['calib']  
 
         # ##############-------------------2----------------################
         img_filenames2 = img_filenames[1]
@@ -380,8 +380,8 @@ class LoadSemKittiAnnotation():
         if type(results['gt_occ']) is list:
             gt_occ = [torch.tensor(x) for x in results['gt_occ']]
         else:
-            gt_occ = torch.tensor(results['gt_occ'])####################
-            # gt_occ = torch.zeros(1, 256,256,32)
+            gt_occ = torch.tensor(results['gt_occ'])  ###
+
             
         
         if self.apply_bda:
@@ -395,7 +395,7 @@ class LoadSemKittiAnnotation():
         
         imgs, rots, trans, intrins, post_rots, post_trans, gt_depths, sensor2sensors, calib = results['img_inputs'][0]
         imgs2, rots2, trans2, intrins2, post_rots2, post_trans2, gt_depths2, sensor2sensors2, calib = results['img_inputs'][1]
-        # print("gt_depths", gt_depths.shape)
+   
         results['img_inputs'] = ([imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, gt_depths, sensor2sensors, calib],  [imgs2, rots2, trans2, intrins2, post_rots2, post_trans2, bda_rot, gt_depths2, sensor2sensors2, calib ] )
         results['gt_occ'] = gt_occ
         

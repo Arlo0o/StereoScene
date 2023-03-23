@@ -56,10 +56,10 @@ class stereofeature_net(nn.Module):
                       stride=1,
                       padding=0),
         )
-    def forward(self, x, mlp_input): ### [12, 640, 48, 160] [12, 1, 30]
+    def forward(self, x, mlp_input):  
         mlp_input = self.bn(mlp_input.reshape(-1, mlp_input.shape[-1])) 
         x = self.reduce_conv(x) 
-        depth_se = self.depth_mlp(mlp_input)[..., None, None]  ## [12, 128]->[12, 128, 1, 1]
+        depth_se = self.depth_mlp(mlp_input)[..., None, None]   
         depth = self.depth_se(x, depth_se)
         depth = self.depth_conv(depth)
         return depth
@@ -209,8 +209,8 @@ class GwcNet_volume_encoder(nn.Module):
         refimg_fea, targetimg_fea = fea[:B ], fea[B: ]
 
  
-        gwc_volume = build_gwc_volume(refimg_fea, targetimg_fea, self.maxdisp, self.num_groups)  ### 4, 32, 112, 48, 160]
-        volume = warp(gwc_volume , calib, down=1, maxdepth=gwc_volume.shape[2] ) ## [4, 32, 112, 48, 160]
+        gwc_volume = build_gwc_volume(refimg_fea, targetimg_fea, self.maxdisp, self.num_groups)   
+        volume = warp(gwc_volume , calib, down=1, maxdepth=gwc_volume.shape[2] ) 
         cost0 = self.dres0(volume)
         cost0 = self.dres1(cost0) + cost0
         out1 = self.dres2(cost0)
@@ -245,7 +245,7 @@ class volume_interaction(nn.Module):
 
         self.CA3D = Residual( CA3D(32) )
 
-    def forward(self, stereo_volume, lss_volume):  ### [2, 112, 48, 160]
+    def forward(self, stereo_volume, lss_volume):   
 
         stereo_volume=stereo_volume.unsqueeze(1)
         lss_volume=lss_volume.unsqueeze(1)
@@ -353,31 +353,31 @@ class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
         Output:
             gt_depths: [B*N*h*w, d]
         """
-        B, N, H, W = gt_depths.shape  ## [1, 1, 384, 1280]
+        B, N, H, W = gt_depths.shape  
         gt_depths = gt_depths.view(B * N,
                                    H // self.downsample, self.downsample,
-                                   W // self.downsample, self.downsample, 1)  ### [4, 48, 8, 160, 8, 1]
+                                   W // self.downsample, self.downsample, 1)   
         gt_depths = gt_depths.permute(0, 1, 3, 5, 2, 4).contiguous()  ### B * N, H // self.downsample, W // self.downsample, 1,  self.downsample,  self.downsample [1, 48, 160, 1, 8, 8]
-        gt_depths = gt_depths.view(-1, self.downsample * self.downsample) ### [30720, 64]
-        gt_depths_tmp = torch.where(gt_depths == 0.0, 1e5 * torch.ones_like(gt_depths), gt_depths) ### [30720, 64]
-        gt_depths = torch.min(gt_depths_tmp, dim=-1).values  ### [30720]
-        gt_depths = gt_depths.view(B * N, H // self.downsample, W // self.downsample) ### [1, 48, 160]
+        gt_depths = gt_depths.view(-1, self.downsample * self.downsample) 
+        gt_depths_tmp = torch.where(gt_depths == 0.0, 1e5 * torch.ones_like(gt_depths), gt_depths)  
+        gt_depths = torch.min(gt_depths_tmp, dim=-1).values   
+        gt_depths = gt_depths.view(B * N, H // self.downsample, W // self.downsample)  
         
         # [min - step / 2, min + step / 2] creates min depth
-        gt_depths = (gt_depths - (self.grid_config['dbound'][0] - self.grid_config['dbound'][2] / 2)) / self.grid_config['dbound'][2] ### [1, 48, 160]
+        gt_depths = (gt_depths - (self.grid_config['dbound'][0] - self.grid_config['dbound'][2] / 2)) / self.grid_config['dbound'][2]  
         gt_depths_vals = gt_depths.clone()
         
-        gt_depths = torch.where((gt_depths < self.D + 1) & (gt_depths >= 0.0), gt_depths, torch.zeros_like(gt_depths))  ### [1, 48, 160]
-        gt_depths = F.one_hot(gt_depths.long(), num_classes=self.D + 1).view(-1, self.D + 1)[:, 1:]  ### [30720, 112]
+        gt_depths = torch.where((gt_depths < self.D + 1) & (gt_depths >= 0.0), gt_depths, torch.zeros_like(gt_depths))  
+        gt_depths = F.one_hot(gt_depths.long(), num_classes=self.D + 1).view(-1, self.D + 1)[:, 1:]  
         
         return gt_depths_vals, gt_depths.float()
     
     @force_fp32()
-    def get_bce_depth_loss(self, depth_labels, depth_preds):  ### [1, 1, 384, 1280]  [1, 112, 48, 160]
+    def get_bce_depth_loss(self, depth_labels, depth_preds):  
    
-        _, depth_labels = self.get_downsampled_gt_depth(depth_labels) ###  [30720, 112]
+        _, depth_labels = self.get_downsampled_gt_depth(depth_labels)  
  
-        depth_preds = depth_preds.permute(0, 2, 3, 1).contiguous().view(-1, self.D)  ### [30720, 112]
+        depth_preds = depth_preds.permute(0, 2, 3, 1).contiguous().view(-1, self.D)  
         fg_mask = torch.max(depth_labels, dim=1).values > 0.0
         depth_labels = depth_labels[fg_mask]
         depth_preds = depth_preds[fg_mask]
@@ -487,25 +487,25 @@ class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
         calib = input[16]
 
         stereo_volume = self.stereo_volume_net(feature_left,feature_right,mlp_input_left, mlp_input_right, calib)
-        stereo_volume = stereo_volume["single_channel"] ### [2, 112, 48, 160]  B D H W
+        stereo_volume = stereo_volume["single_channel"]  
 
  
 
 
-        B, N, C, H, W = x.shape  ### (2, 1, 640, 24, 80)
+        B, N, C, H, W = x.shape   
         x = x.view(B * N, C, H, W)
 
         
         if self.imgseg:  ## False
             self.forward_dic['imgseg_logits'] = self.img_seg_head(x)
         
-        x = self.depth_net(x, mlp_input)  ## [1, 240, 48, 160]
-        depth_digit = x[:, :self.D, ...]  ## [1, 112, 48, 160]
-        img_feat = x[:, self.D:self.D + self.numC_Trans, ...]  ## [1, 128, 48, 160]
-        depth_prob = self.get_depth_dist(depth_digit) ## [1, 112, 48, 160]
+        x = self.depth_net(x, mlp_input)  
+        depth_digit = x[:, :self.D, ...]   
+        img_feat = x[:, self.D:self.D + self.numC_Trans, ...]   
+        depth_prob = self.get_depth_dist(depth_digit)  
     
  
-        depth_prob = self.volume_interaction(stereo_volume, depth_prob)  ## [1, 112, 48, 160]
+        depth_prob = self.volume_interaction(stereo_volume, depth_prob)   
 
 
 
@@ -514,14 +514,13 @@ class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
             img_feat = torch.cat((img_feat, img_segprob), dim=1)
 
         # Lift
-        volume = depth_prob.unsqueeze(1) * img_feat.unsqueeze(2)  ## BCDHW [1, 128, 112, 48, 160]
-        volume = volume.view(B, N, -1, self.D, H, W)  ###   [1, 1, 128, 112, 48, 160]
-        volume = volume.permute(0, 1, 3, 4, 5, 2)  ### B N D H W -1   [1, 1, 112, 48, 160, 128]
+        volume = depth_prob.unsqueeze(1) * img_feat.unsqueeze(2)  
+        volume = volume.view(B, N, -1, self.D, H, W)   
+        volume = volume.permute(0, 1, 3, 4, 5, 2)   
  
         # Splat
-        geom = self.get_geometry(rots, trans, intrins, post_rots, post_trans, bda)  ## [1, 1, 112, 48, 160, 3]
-        bev_feat = self.voxel_pooling(geom, volume)  ### # [b, c, z, x, y]  [1, 128, 128, 128, 16]
-
+        geom = self.get_geometry(rots, trans, intrins, post_rots, post_trans, bda)  
+        bev_feat = self.voxel_pooling(geom, volume)   
  
        
         return bev_feat, depth_prob

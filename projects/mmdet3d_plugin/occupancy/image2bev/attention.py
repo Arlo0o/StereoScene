@@ -60,9 +60,9 @@ class attention(nn.Module):
         x=kv
         m_batchsize, C, D, height, width = x.size()
 
-        confidence  = F.softmax(q, dim=2)  ## B 1 D H W
-        confidence = torch.max(confidence, dim=2)[0] ## B 1 H W
-        confidence =confidence.view(m_batchsize, -1, width * height)## B 1 HW
+        confidence  = F.softmax(q, dim=2)   
+        confidence = torch.max(confidence, dim=2)[0]  
+        confidence =confidence.view(m_batchsize, -1, width * height) 
 
      
         proj_query = self.query_conv(q ).view(m_batchsize, -1, width * height).permute(0, 2, 1)

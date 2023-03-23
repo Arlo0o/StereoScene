@@ -156,4 +156,5 @@ Many thanks to these excellent open source projects:
 - [LMSCNet](https://github.com/astra-vision/LMSCNet)
 - [Semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api) 
 - [Pseudo_Lidar_V2](https://github.com/mileyan/Pseudo_Lidar_V2)
-- [TPVFormer](https://github.com/wzzheng/TPVFormer)
+- [BEVFormer](https://github.com/fundamentalvision/BEVFormer)
+
