@@ -1,5 +1,7 @@
 .idea/
+.dist_test/
 .vscode/
+*__pycache__/
 work_dir/
 pretrain/
 *.tar
