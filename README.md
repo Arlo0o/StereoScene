@@ -15,7 +15,7 @@
 # Table of Content
 - [News](#news)
 - [Abstract](#abstract)
-- [Installation](#step-by-step installation instructions)
+- [Installation](#step-by-step-installation-instructions)
 - [Prepare Data](#prepare-data)
 - [Pretrained Model](#pretrained-model)
 - [Training & Evaluation](#training--evaluation)
@@ -121,7 +121,7 @@ python tools/train.py   \
             projects/configs/occupancy/semantickitti/stereoscene.py
 ```
 
-- **Test with single GPUs:**
+- **Evaluate with single GPUs:**
 ```
 export PYTHONPATH="."  
 python tools/test.py  \
@@ -137,7 +137,7 @@ bash run.sh  \
         projects/configs/occupancy/semantickitti/stereoscene.py n
 ```
 
-- **Test with n GPUs:**
+- **Evaluate with n GPUs:**
 ```
  bash tools/dist_test.sh  \
             projects/configs/occupancy/semantickitti/stereoscene.py \
