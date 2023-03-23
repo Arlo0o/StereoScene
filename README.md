@@ -64,7 +64,6 @@ pip install open3d-python
 pip install PyMCubes
 ```
 
-**h. Prepare pretrained models.**
 
 ## Known problems
 
@@ -91,7 +90,7 @@ bash process_kitti.sh
 ```
 
 
-## Pretrained Model
+# Pretrained Model
 
 Download [StereoScene pretrained model](https://drive.google.com/file/d/1D0gP3S5uKo6pDZApCg7lrwOf5c5_yvC7/view?usp=share_link) on SemanticKITTI and [Efficientnet-b7 pretrained model](https://drive.google.com/file/d/1JffT44Zjw27XBTeUv8_RW6wP6GllMtZh/view?usp=share_link), put them in the folder `/pretrain`.
 
@@ -99,7 +98,7 @@ Download [StereoScene pretrained model](https://drive.google.com/file/d/1D0gP3S5
 
 # Training & Evaluation
 
-## On Single GPU
+## Single GPU
 - **Train with single GPU:**
 ```
 export PYTHONPATH="."  
@@ -116,7 +115,7 @@ python tools/test.py  \
 ```
 
 
-## On Multiple GPUS
+## Multiple GPUS
 - **Train with n GPUs:**
 ```
 bash run.sh  \
@@ -140,4 +139,6 @@ Many thanks to these excellent open source projects:
 - [MonoScene](https://github.com/astra-vision/MonoScene)
 - [BEVDepth](https://github.com/Megvii-BaseDetection/BEVDepth)
 - [SSC](https://github.com/waterljwant/SSC)
-
+- [LMSCNet](https://github.com/astra-vision/LMSCNet)
+- [semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api) 
+- [TPVFormer](https://github.com/wzzheng/TPVFormer)
