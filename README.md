@@ -81,7 +81,7 @@ pip install setuptools==59.5.0
 - **a. You need to download**
 
      - The **Odometry calibration** (Download odometry data set (calibration files, 1 MB)) and the **RGB images** (Download odometry data set (color, 65 GB)) from [KITTI Odometry website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), extract them to the folder `data/occupancy/semanticKITTI/RGB/`.
-     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip), 80GB) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip), 179MB ) for sparse LIDAR supervision in training process, extract them to the folder ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
+     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip), 80GB) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip), 179MB ) for sparse LIDAR supervision in training process, extract them to the folders ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
 
 
 - **b. Prepare KITTI voxel label (see sh file for more details)**
