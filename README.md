@@ -81,8 +81,8 @@ pip install setuptools==59.5.0
 
 - **a. You need to download**
 
-     - The **Odometry calibration** (Download odometry data set (calibration files, 1 MB)) and the **RGB images** (Download odometry data set (color, 65 GB)) from [KITTI Odometry website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), extract them to `data/occupancy/semanticKITTI/RGB/`.
-     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip), 80GB) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip), 179MB ) for sparse LIDAR supervision in training process, extract them to ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
+     - The **Odometry calibration** (Download odometry data set (calibration files, 1 MB)) and the **RGB images** (Download odometry data set (color, 65 GB)) from [KITTI Odometry website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), extract them to the folder `data/occupancy/semanticKITTI/RGB/`.
+     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip), 80GB) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip), 179MB ) for sparse LIDAR supervision in training process, extract them to the folder ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
 
 
 - **b. Prepare KITTI voxel label (see sh file for more details)**
@@ -93,7 +93,7 @@ bash process_kitti.sh
 
 ## Pretrained Model
 
-Download StereoScene pretrained model on SemanticKITTI(https://drive.google.com/file/d/1D0gP3S5uKo6pDZApCg7lrwOf5c5_yvC7/view?usp=share_link) and pretrained Efficientnet-b7(https://drive.google.com/file/d/1JffT44Zjw27XBTeUv8_RW6wP6GllMtZh/view?usp=share_link),put them in the folder `/pretrain`.
+Download [StereoScene pretrained model](https://drive.google.com/file/d/1D0gP3S5uKo6pDZApCg7lrwOf5c5_yvC7/view?usp=share_link) on SemanticKITTI and [Efficientnet-b7 pretrained model](https://drive.google.com/file/d/1JffT44Zjw27XBTeUv8_RW6wP6GllMtZh/view?usp=share_link), put them in the folder `/pretrain`.
 
 
 
@@ -120,7 +120,7 @@ python tools/test.py  \
 - **Train with n GPUs:**
 ```
 bash run.sh  \
-            projects/configs/occupancy/semantickitti/stereoscene.py n
+        projects/configs/occupancy/semantickitti/stereoscene.py n
 ```
 
 - **Test with n GPUs:**

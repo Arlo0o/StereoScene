@@ -5,5 +5,4 @@ pretrain/
 *.pt
 *.pth
 *.ckpt
-*.png
-*.jpg
+
