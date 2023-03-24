@@ -59,7 +59,7 @@ model = dict(
             encoder=dict(
                 type='DetrTransformerEncoder',
                 num_layers=6,
-                # deformable attention + FFN, channel 可能需要做调整 
+                # deformable attention + FFN,  
                 transformerlayers=dict(
                     type='BaseTransformerLayer',
                     attn_cfgs=dict(

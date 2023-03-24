@@ -317,7 +317,7 @@ class CreateDepthFromLiDAR(object):
         img_seg[seg_projected_points[:, 1].round().long(), seg_projected_points[:, 0].round().long()] = flatten_seg
         results['img_seg'] = img_seg
         
-        # self.visualize(results['canvas'], img_depth, img_seg,out_path='debug_lidar_projections')  ################### 可视化
+        # self.visualize(results['canvas'], img_depth, img_seg,out_path='debug_lidar_projections')   
         
         imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, gt_depths, sensor2sensors, calib = results['img_inputs'][0]
         tmp1 = [imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, img_depth.unsqueeze(0), sensor2sensors, calib]
@@ -385,7 +385,7 @@ class CreateDepthFromLiDAR(object):
         # sort and project
         depth_order = torch.argsort(depth_projected_points[:, 2], descending=True)
         depth_projected_points = depth_projected_points[depth_order]
-        img_depth[depth_projected_points[:, 1].round().long(), depth_projected_points[:, 0].round().long()] = depth_projected_points[:, 2] ## [384, 1280]点云深度
+        img_depth[depth_projected_points[:, 1].round().long(), depth_projected_points[:, 0].round().long()] = depth_projected_points[:, 2]  
   
 
         '''

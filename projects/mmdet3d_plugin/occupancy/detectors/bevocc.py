@@ -370,7 +370,7 @@ class BEVOcc(MVXTwoStageDetector):
             # vertices -= 0.5
             # vertices -= 1
             
-            # 通过 voxel occupancy，重建 mesh, isovalue
+   
             vertices, triangles = mcubes.marching_cubes(pred_occ[i], 0.5)
             vertices_ori = vertices.copy()
             

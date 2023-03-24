@@ -29,7 +29,7 @@ class MultiViewProjections(object):
         out_path = 'debug_mv_projections'
         os.makedirs(out_path, exist_ok=True)
         
-        # 大概一半的 lidar points 都没有对应的图像像素，可能是由于 resize 和 crop 导致的
+  
         valid_sum = 0
         for cam_index, img in enumerate(img_canvas):
             cam_projections = projections[:, cam_index]

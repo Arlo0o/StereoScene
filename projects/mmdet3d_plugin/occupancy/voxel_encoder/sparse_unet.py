@@ -244,7 +244,7 @@ class CustomSparseUNet(BaseModule):
                     padding=paddings[0],
                     indice_key=f'subm{block_num - i}',
                     conv_type='SubMConv3d'))
-            # 如果不是最后一个 decoder block
+ 
             if block_num - i != 1:
                 setattr(
                     self, f'upsample_layer{block_num - i}',

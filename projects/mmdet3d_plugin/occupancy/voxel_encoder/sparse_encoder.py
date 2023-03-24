@@ -119,7 +119,7 @@ class CustomSparseEncoder(nn.Module):
             x = encoder_layer(x)
             encode_features.append(x)
         
-        # 输出为 4x downsample
+ 
         out = self.conv_out(encode_features[-1])
         spatial_features = out.dense()
         N, C, D, H, W = spatial_features.shape
@@ -168,7 +168,7 @@ class CustomSparseEncoder(nn.Module):
                             indice_key=f'spconv{i + 1}',
                             conv_type='SparseConv3d'))
                 elif block_type == 'basicblock':
-                    # 除了最后一个 block，每个 block 的最后一层使用 stride-2
+        
                     if j == len(blocks) - 1 and i != len(
                             self.encoder_channels) - 1:
                         blocks_list.append(

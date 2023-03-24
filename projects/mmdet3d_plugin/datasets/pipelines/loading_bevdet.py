@@ -176,7 +176,7 @@ class LoadMultiViewImageFromFiles_BEVDet(object):
             resize += np.random.uniform(*self.data_config['resize'])
             resize_dims = (int(W * resize), int(H * resize))
             newW, newH = resize_dims
-            # 高度上只裁上半部分
+     
             crop_h = int((1 - np.random.uniform(*self.data_config['crop_h'])) * newH) - fH
             crop_w = int(np.random.uniform(0, max(0, newW - fW)))
             crop = (crop_w, crop_h, crop_w + fW, crop_h + fH)

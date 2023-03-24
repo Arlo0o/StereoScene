@@ -45,7 +45,7 @@ class SpconvNeck3D(BaseModule):
         self.fpn_convs = nn.ModuleList()
         
         for i in range(self.num_out):
-            # 拓展感受野
+ 
             l_conv = nn.Sequential(
                 # ConvModule(in_channels[i], out_channels, 
                 #     kernel_size=3, padding=1,
