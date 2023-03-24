@@ -204,8 +204,8 @@ class CreateDepthFromLiDAR(object):
         # how to filter the query lidar points
         self.projective_filter = projective_filter
         
-        self.lidar_root = "/code/data/occupancy/semanticKITTI/lidar/velodyne/dataset/sequences/" # "./data/lidar/velodyne/dataset/sequences"
-        self.lidarseg_root = "/code/data/occupancy/semanticKITTI/lidar/lidarseg/dataset/sequences/" #"./data/lidar/lidarseg/dataset/sequences"
+        self.lidar_root = "./data/lidar/velodyne/dataset/sequences"
+        self.lidarseg_root ="./data/lidar/lidarseg/dataset/sequences"
           
         # mappings of training ids
         with open(label_mapping, 'r') as stream:

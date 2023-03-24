@@ -126,8 +126,8 @@ model = dict(
 )
 
 dataset_type = 'CustomSemanticKITTILssDataset'
-data_root = '/code/data/occupancy/semanticKITTI/RGB/'  #'./data/occupancy/semanticKITTI/RGB/'
-ann_file = '/code/data/occupancy/semanticKITTI/lss-semantic_kitti_voxel_label/labels/' #'./data/occupancy/semanticKITTI/lss-semantic_kitti_voxel_label/labels/'
+data_root = './data/occupancy/semanticKITTI/RGB/'
+ann_file = './data/occupancy/semanticKITTI/lss-semantic_kitti_voxel_label/labels/'
 file_client_args = dict(backend='disk')
 
 bda_aug_conf = dict(
