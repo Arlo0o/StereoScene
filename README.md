@@ -24,7 +24,6 @@
 
 
 # News
-- [2023/03]: StereoScene paper is on arxiv.
 - [2023/03]: StereoScene demo and code released.
 
 # Abstract
