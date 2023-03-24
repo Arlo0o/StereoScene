@@ -137,7 +137,7 @@ bda_aug_conf = dict(
     flip_dy_ratio=0.5)
 
 train_pipeline = [
-    dict(type='LoadMultiViewImageFromFiles_SemanticKitti', is_train=True, colorjitter=False, #############
+    dict(type='LoadMultiViewImageFromFiles_SemanticKitti', is_train=True, colorjitter=False,  
          data_config=data_config, load_depth=False, img_norm_cfg=img_norm_cfg),
     dict(type='LoadSemKittiAnnotation', bda_aug_conf=bda_aug_conf, is_train=True),
     dict(type='CreateDepthFromLiDAR', point_cloud_range=point_cloud_range, grid_size=occ_size),

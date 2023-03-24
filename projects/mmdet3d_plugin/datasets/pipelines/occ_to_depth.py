@@ -233,7 +233,7 @@ class CreateDepthFromLiDAR(object):
         return points_uvd
 
     def __call__(self, results):
-        ####################--------------------------1----------------------------#########################
+       
         img_filename = results['img_filename'][0]
         seq_id, _, filename = img_filename.split("/")[-3:]
         
@@ -322,7 +322,7 @@ class CreateDepthFromLiDAR(object):
         imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, gt_depths, sensor2sensors, calib = results['img_inputs'][0]
         tmp1 = [imgs, rots, trans, intrins, post_rots, post_trans, bda_rot, img_depth.unsqueeze(0), sensor2sensors, calib]
 
-        ####################--------------------------2----------------------------#########################
+ 
         img_filename = results['img_filename'][1]
         seq_id, _, filename = img_filename.split("/")[-3:]
         

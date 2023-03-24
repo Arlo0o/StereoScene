@@ -174,7 +174,7 @@ class LoadMultiViewImageFromFiles_SemanticKitti(object):
 
         calib = results['calib']  
 
-        # ##############-------------------2----------------################
+        
         img_filenames2 = img_filenames[1]
 
         img2 = mmcv.imread(img_filenames2, 'unchanged')
@@ -190,7 +190,7 @@ class LoadMultiViewImageFromFiles_SemanticKitti(object):
         resize, resize_dims, crop, flip, rotate = img_augs2
         img2, post_rot2, post_tran2 = \
             self.img_transform(img2, post_rot, post_tran, resize=resize, 
-                resize_dims=resize_dims, crop=crop,flip=flip, rotate=rotate)  ### PIL
+                resize_dims=resize_dims, crop=crop,flip=flip, rotate=rotate)   
 
         # for convenience, make augmentation matrices 3x3
         post_tran = torch.zeros(3)
@@ -233,7 +233,7 @@ class LoadMultiViewImageFromFiles_SemanticKitti(object):
         
         results['canvas2'] = canvas2
 
-        ##############-------------------1----------------################
+     
         img_filenames = img_filenames[0]
 
         img = mmcv.imread(img_filenames, 'unchanged')
@@ -380,7 +380,7 @@ class LoadSemKittiAnnotation():
         if type(results['gt_occ']) is list:
             gt_occ = [torch.tensor(x) for x in results['gt_occ']]
         else:
-            gt_occ = torch.tensor(results['gt_occ'])  ###
+            gt_occ = torch.tensor(results['gt_occ'])   
 
             
         

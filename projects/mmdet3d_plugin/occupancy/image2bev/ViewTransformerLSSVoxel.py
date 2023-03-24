@@ -252,7 +252,7 @@ class volume_interaction(nn.Module):
 
 
         lss_volume_from_stereoguidance = self.lss2stereo( q = stereo_volume ,   kv = lss_volume     )
-        stereo_volume_from_lssguidance = self.stereo2lss( q = lss_volume ,      kv = stereo_volume  ) ## B 1 D H W
+        stereo_volume_from_lssguidance = self.stereo2lss( q = lss_volume ,      kv = stereo_volume  ) 
 
 
 
@@ -269,7 +269,7 @@ class volume_interaction(nn.Module):
 
 
 
-###########################----------------------------------------------------###########################      
+  
 @NECKS.register_module()
 class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
     def __init__(
@@ -357,7 +357,7 @@ class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
         gt_depths = gt_depths.view(B * N,
                                    H // self.downsample, self.downsample,
                                    W // self.downsample, self.downsample, 1)   
-        gt_depths = gt_depths.permute(0, 1, 3, 5, 2, 4).contiguous()  ### B * N, H // self.downsample, W // self.downsample, 1,  self.downsample,  self.downsample [1, 48, 160, 1, 8, 8]
+        gt_depths = gt_depths.permute(0, 1, 3, 5, 2, 4).contiguous()  
         gt_depths = gt_depths.view(-1, self.downsample * self.downsample) 
         gt_depths_tmp = torch.where(gt_depths == 0.0, 1e5 * torch.ones_like(gt_depths), gt_depths)  
         gt_depths = torch.min(gt_depths_tmp, dim=-1).values   
@@ -496,7 +496,7 @@ class ViewTransformerLiftSplatShootVoxel(ViewTransformerLSSBEVDepth):
         x = x.view(B * N, C, H, W)
 
         
-        if self.imgseg:  ## False
+        if self.imgseg:   
             self.forward_dic['imgseg_logits'] = self.img_seg_head(x)
         
         x = self.depth_net(x, mlp_input)  

@@ -194,7 +194,7 @@ class CustomSemanticKITTILssDataset(CustomSemanticKITTIDataset):
 
         input_dict.update(
             dict(
-                img_filename=image_paths,    ###### image2, imag3
+                img_filename=image_paths,    
        
                 lidar2img=lidar2img_rts,
           
