@@ -26,7 +26,7 @@ This repository contains the official implementation of the paper: "StereoScene:
 
 
 # News
-- [2023/03]: StereoScene is on [arxiv](https://arxiv.org/abs/2303.13959)
+- [2023/03]: StereoScene paper is on [arxiv](https://arxiv.org/abs/2303.13959)
 - [2023/03]: StereoScene demo and code released.
 
 # Abstract
