@@ -9,9 +9,9 @@ This repository contains the official implementation of the paper: "StereoScene:
 </p>
 
 
-- **Overall Framework:**
+- **Quantitative Results:**
 <p align="center">
-<img src="./teaser/overall.png" />
+<img src="./teaser/results.png" />
 </p>
 
 # Table of Content
@@ -22,6 +22,7 @@ This repository contains the official implementation of the paper: "StereoScene:
 - [Pretrained Model](#pretrained-model)
 - [Training & Evaluation](#training--evaluation)
 - [License](#license)
+- [Citation](#citation)
 - [Acknowledgements](#acknowledgements)
 
 
@@ -96,8 +97,8 @@ pip install setuptools==59.5.0
 
 - **a. You need to download**
 
-     - The **Odometry calibration** (Download odometry data set (calibration files, 1 MB)) and the **RGB images** (Download odometry data set (color, 65 GB)) from [KITTI Odometry website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), extract them to the folder `data/occupancy/semanticKITTI/RGB/`.
-     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip), 80GB) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip), 179MB ) for sparse LIDAR supervision in training process, extract them to the folders ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
+     - The **Odometry calibration** (Download odometry data set (calibration files)) and the **RGB images** (Download odometry data set (color)) from [KITTI Odometry website](http://www.cvlibs.net/datasets/kitti/eval_odometry.php), extract them to the folder `data/occupancy/semanticKITTI/RGB/`.
+     - The **Velodyne point clouds** (Download [data_odometry_velodyne](http://www.cvlibs.net/download.php?file=data_odometry_velodyne.zip)) and the **SemanticKITTI label data** (Download [data_odometry_labels](http://www.semantic-kitti.org/assets/data_odometry_labels.zip)) for sparse LIDAR supervision in training process, extract them to the folders ``` data/lidar/velodyne/ ``` and ``` data/lidar/lidarseg/ ```, separately. 
 
 
 - **b. Prepare KITTI voxel label (see sh file for more details)**
@@ -149,6 +150,19 @@ bash run.sh  \
 
 # License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
+
+# Citation
+If you find this project useful in your research, please consider cite:
+```
+@misc{li2023stereoscene,
+      title={StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion}, 
+      author={Bohan Li and Yasheng Sun and Xin Jin and Wenjun Zeng and Zheng Zhu and Xiaoefeng Wang and Yunpeng Zhang and James Okae and Hang Xiao and Dalong Du},
+      year={2023},
+      eprint={2303.13959},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 # Acknowledgements
 Many thanks to these excellent open source projects: 
