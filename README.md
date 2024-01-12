@@ -6,13 +6,11 @@
 
 # Table of Content
 - [News](#news)
-- [Abstract](#abstract)
 - [Installation](#step-by-step-installation-instructions)
 - [Prepare Data](#prepare-data)
 - [Pretrained Model](#pretrained-model)
 - [Training & Evaluation](#training--evaluation)
 - [License](#license)
-- [Citation](#citation)
 - [Acknowledgements](#acknowledgements)
 
 
