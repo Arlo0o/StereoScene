@@ -1,12 +1,6 @@
-# StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion
+# Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion
 
-This repository contains the official implementation of the paper: "StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion".
 
-# Teaser
-- **Comparison with MonoScene on SemanticKITTI:**
-<p align="center">
-<img src="./teaser/teaser.gif" />
-</p>
 
 
 
@@ -23,8 +17,8 @@ This repository contains the official implementation of the paper: "StereoScene:
 
 
 # News
-- [2023/03]: StereoScene paper is on [arxiv](https://arxiv.org/abs/2303.13959)
-- [2023/03]: StereoScene demo and code released.
+- [2023/03]: Paper is on [arxiv](https://arxiv.org/abs/2303.13959)
+- [2023/03]: Demo and code released.
 
 
 
@@ -103,7 +97,7 @@ bash process_kitti.sh
 
 # Pretrained Model
 
-Download [StereoScene pretrained model](https://drive.google.com/file/d/1D0gP3S5uKo6pDZApCg7lrwOf5c5_yvC7/view?usp=share_link) on SemanticKITTI and [Efficientnet-b7 pretrained model](https://drive.google.com/file/d/1JffT44Zjw27XBTeUv8_RW6wP6GllMtZh/view?usp=share_link), put them in the folder `/pretrain`.
+Download [Pretrained model](https://drive.google.com/file/d/1D0gP3S5uKo6pDZApCg7lrwOf5c5_yvC7/view?usp=share_link) on SemanticKITTI and [Efficientnet-b7 pretrained model](https://drive.google.com/file/d/1JffT44Zjw27XBTeUv8_RW6wP6GllMtZh/view?usp=share_link), put them in the folder `/pretrain`.
 
 
 
@@ -145,18 +139,7 @@ bash run.sh  \
 # License
 This repository is released under the Apache 2.0 license as found in the [LICENSE](LICENSE) file.
 
-# Citation
-If you find this project useful in your research, please consider cite:
-```
-@misc{li2023stereoscene,
-      title={StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion}, 
-      author={Bohan Li and Yasheng Sun and Xin Jin and Wenjun Zeng and Zheng Zhu and Xiaoefeng Wang and Yunpeng Zhang and James Okae and Hang Xiao and Dalong Du},
-      year={2023},
-      eprint={2303.13959},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
+
 
 # Acknowledgements
 Many thanks to these excellent open source projects: 
