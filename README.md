@@ -1,4 +1,4 @@
-# Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion
+## Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion
 
 
 
