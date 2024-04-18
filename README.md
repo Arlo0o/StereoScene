@@ -15,7 +15,7 @@
 
 
 # News
-- [2023/03]: Paper is accepted on IJCAI 2024
+- [2024/04]: Paper is accepted on IJCAI 2024
 - [2023/03]: Paper is on [arxiv](https://arxiv.org/abs/2303.13959)
 - [2023/03]: Demo and code released.
 
