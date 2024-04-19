@@ -151,3 +151,15 @@ Many thanks to these excellent open source projects:
 - [Pseudo_Lidar_V2](https://github.com/mileyan/Pseudo_Lidar_V2)
 - [BEVFormer](https://github.com/fundamentalvision/BEVFormer)
 
+
+## Citation
+If you find our paper and code useful for your research, please consider citing:
+```bibtex
+@misc{li2024bridging,
+      title={Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion}, 
+      author={Bohan Li and Yasheng Sun and Zhujin Liang and Dalong Du and Zhuanghui Zhang and Xiaofeng Wang and Yunnan Wang and Xin Jin and Wenjun Zeng},
+      year={2024},
+      journal={IJCAI},
+      year={2024}
+}
+```
