@@ -1,4 +1,4 @@
-## Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion (IJCAI 2024)
+## [IJCAI 2024] Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion 
 
 
 
