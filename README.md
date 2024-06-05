@@ -3,11 +3,11 @@
 
 
 ### Demo:
-<div align=center><img width="1280" height="720" src="./assets/demo.gif"/></div>
+<div align=center><img width="640" height="360" src="./assets/demo.gif"/></div>
 
 
 ## Benchmark Results
-<div align=center><img width="1515" height="790" src="./assets/kitti_test.png"/></div>
+<div align=center><img width="1200" height="790" src="./assets/kitti_test.png"/></div>
 
 
 # Table of Content
