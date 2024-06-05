@@ -7,7 +7,7 @@
 
 
 ## Benchmark Results
-<div align=center><img width="1200" height="790" src="./assets/kitti_test.png"/></div>
+<div align=center><img width="800" height="500" src="./assets/kitti_test.png"/></div>
 
 
 # Table of Content
