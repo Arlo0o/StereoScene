@@ -3,10 +3,12 @@
 
 
 ### Demo:
-![demo](./assets/demo.gif)
+<div align=center><img width="300" height="300" src="./assets/demo.gif"/></div>
+
 
 ## Benchmark Results
-![kitti_test](./assets/kitti_test.png)
+<div align=center><img width="300" height="300" src="./assets/kitti_test.png"/></div>
+
 
 # Table of Content
 - [News](#news)
