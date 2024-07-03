@@ -5,6 +5,9 @@
 ### Demo:
 <div align=center><img width="640" height="360" src="./assets/demo.gif"/></div>
 
+### Poster:
+<div align=center><img width="800" height="399" src="./assets/BRGScene_poster.pdf"/></div>
+
 
 ## Benchmark Results
 <div align=center><img width="800" height="450" src="./assets/kitti_test.png"/></div>
