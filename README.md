@@ -122,9 +122,9 @@ python tools/train.py   \
 - **Evaluate with single GPUs:**
 ```
 export PYTHONPATH="."  
-python tools/test.py  \
+bash run_eval_kitti.sh   \
             projects/configs/occupancy/semantickitti/stereoscene.py \
-            pretrain/pretrain_stereoscene.pth 
+            pretrain/pretrain_stereoscene.pth  1
 ```
 
 
