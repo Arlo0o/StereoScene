@@ -1,12 +1,12 @@
 ## [IJCAI 2024] Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion 
 
 
+### Poster:
+<div align=center><img width="800" height="399" src="./assets/BRGScene_poster.png"/></div>
+
 
 ### Demo:
 <div align=center><img width="640" height="360" src="./assets/demo.gif"/></div>
-
-### Poster:
-<div align=center><img width="800" height="399" src="./assets/BRGScene_poster.png"/></div>
 
 
 ## Benchmark Results
