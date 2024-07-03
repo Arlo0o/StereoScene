@@ -15,6 +15,7 @@
 
 # Table of Content
 - [News](#news)
+- [Quick Start](quick-installation-on-a100)
 - [Installation](#step-by-step-installation-instructions)
 - [Prepare Data](#prepare-data)
 - [Pretrained Model](#pretrained-model)
@@ -29,6 +30,28 @@
 - [2023/03]: Paper is on [arxiv](https://arxiv.org/abs/2303.13959)
 - [2023/03]: Demo and code released.
 
+
+# Quick Installation on A100
+
+You can use our pre-picked environment on NVIDIA A100 with the following steps if using the same hardware:
+
+**a. Download the pre-picked package [occA100](https://drive.google.com/file/d/1JX1TM13yGLjvfz54pTZ4so2nFPNcYa0h/view?usp=sharing).**
+
+**b. Unpack environment into directory occA100**
+```shell
+cd /opt/conda/envs/
+mkdir -p occA100
+tar -xzf occA100.tar.gz -C occA100 
+```
+**c. Activate the environment. This adds occA100/bin to your path**
+```shell
+source occA100/bin/activate
+```
+
+You can also use Python executable file without activating or fixing the prefixes. 
+```shell
+./occA100/bin/python
+```
 
 
 # Step-by-step Installation Instructions
