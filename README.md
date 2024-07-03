@@ -6,7 +6,7 @@
 <div align=center><img width="640" height="360" src="./assets/demo.gif"/></div>
 
 ### Poster:
-<div align=center><img width="800" height="399" src="./assets/BRGScene_poster.pdf"/></div>
+<div align=center><img width="800" height="399" src="./assets/BRGScene_poster.png"/></div>
 
 
 ## Benchmark Results
