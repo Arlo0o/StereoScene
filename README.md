@@ -24,6 +24,7 @@
 
 
 # News
+- [2024/04]: Our new work is accepted on ECCV 2024, please check [HTCL](https://github.com/Arlo0o/HTCL).
 - [2024/04]: Paper is accepted on IJCAI 2024
 - [2023/03]: Paper is on [arxiv](https://arxiv.org/abs/2303.13959)
 - [2023/03]: Demo and code released.
@@ -164,11 +165,10 @@ Many thanks to these excellent open source projects:
 ## Citation
 If you find our paper and code useful for your research, please consider citing:
 ```bibtex
-@misc{li2024bridging,
-      title={Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion}, 
-      author={Bohan Li and Yasheng Sun and Zhujin Liang and Dalong Du and Zhuanghui Zhang and Xiaofeng Wang and Yunnan Wang and Xin Jin and Wenjun Zeng},
-      year={2024},
-      journal={IJCAI},
-      year={2024}
+@article{li2023bridging,
+  title={Bridging stereo geometry and BEV representation with reliable mutual interaction for semantic scene completion},
+  author={Li, Bohan and Sun, Yasheng and Liang, Zhujin and Du, Dalong and Zhang, Zhuanghui and Wang, Xiaofeng and Wang, Yunnan and Jin, Xin and Zeng, Wenjun},
+  journal={arXiv preprint arXiv:2303.13959},
+  year={2023}
 }
 ```
