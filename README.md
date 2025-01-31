@@ -1,11 +1,10 @@
-# StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion
-
-This repository contains the official implementation of the paper: "StereoScene: BEV-Assisted Stereo Matching Empowers 3D Semantic Scene Completion".
+# StereoScene
+This repository contains the official implementation of the IJCAI2024 paper: "Bridging Stereo Geometry and BEV Representation with Reliable Mutual Interaction for Semantic Scene Completion".
 
 # Teaser
 - **Comparison with MonoScene on SemanticKITTI:**
 <p align="center">
-<img src="./teaser/teaser.gif" />
+<img src="./teaser/demo.gif" />
 </p>
 
 
@@ -28,8 +27,10 @@ This repository contains the official implementation of the paper: "StereoScene:
 
 
 # News
-- [2023/03]: StereoScene paper is on [arxiv](https://arxiv.org/abs/2303.13959)
-- [2023/03]: StereoScene demo and code released.
+- [2023/03]: Paper is on [arxiv](https://arxiv.org/abs/2303.13959)
+- [2023/03]: Demo and code released.
+- [2024/04]: Paper is accepted on IJCAI 2024.
+- [2025/01]: Update visualization tools.
 
 # Abstract
 3D semantic scene completion (SSC) is an ill-posed task that requires inferring a dense 3D scene from incomplete observations. Previous methods either explicitly incorporate 3D geometric input or rely on learnt 3D prior behind monocular RGB images. However, 3D sensors such as LiDAR are expensive and intrusive while monocular cameras face challenges in modeling precise geometry due to the inherent ambiguity. In this work, we propose StereoScene for 3D Semantic Scene Completion (SSC), which explores taking full advantage of light-weight camera inputs without resorting to any external 3D sensors. Our key insight is to leverage stereo matching to resolve geometric ambiguity. To improve its robustness in unmatched areas, we introduce bird's-eye-view (BEV) representation to inspire hallucination ability with rich context information. On top of the stereo and BEV representations, a mutual interactive aggregation (MIA) module is carefully devised to fully unleash their power. Specifically, a Bi-directional Interaction Transformer (BIT) augmented with confidence re-weighting is used to encourage reliable prediction through mutual guidance while a Dual Volume Aggregation (DVA) module is designed to facilitate complementary aggregation. Experimental results on SemanticKITTI  demonstrate that the proposed StereoScene outperforms the state-of-the-art camera-based methods by a large margin with a relative improvement of **26.9% in geometry** and **38.6% in semantic**.
@@ -74,6 +75,7 @@ cd mmdetection3d
 git checkout v0.17.1 # Other versions may not be compatible.
 python setup.py install
 ```
+Please check your CUDA version for [mmdet3d](https://github.com/open-mmlab/mmdetection3d/issues/2427) if encountered import problem. 
 
 **f. Install other dependencies.**
 ```shell
