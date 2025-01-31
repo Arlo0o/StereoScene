@@ -21,6 +21,7 @@ This repository contains the official implementation of the paper: "StereoScene:
 - [Prepare Data](#prepare-data)
 - [Pretrained Model](#pretrained-model)
 - [Training & Evaluation](#training--evaluation)
+- [Visualization](#visualization)
 - [License](#license)
 - [Citation](#citation)
 - [Acknowledgements](#acknowledgements)
@@ -146,6 +147,18 @@ bash run.sh  \
             pretrain/pretrain_stereoscene.pth  n
 ```
 
+
+## Visualization
+
+We use mayavi to visualize the predictions. Please install [mayavi](https://docs.enthought.com/mayavi/mayavi/installation.html) following the official installation instruction. Then, use the following commands to visualize the outputs.
+
+
+```
+export PYTHONPATH="."  
+python tools/save_vis.py projects/configs/occupancy/semantickitti/stereoscene.py \
+            pretrain/pretrain_stereoscene.pth  --eval mAP
+python tools/visualization.py
+```
 
 
 # License
